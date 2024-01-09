@@ -367,9 +367,9 @@ def binomial_model_bermudan(T,S_lst,E,r,vol,N,p,spacing):
     plt.savefig('2C.png')
     return V_0
 
-binomial_model_european(T,S_lst,E,r,vol,N,p)
-binomial_model_american(T,S_lst,E,r,vol,N,p)
-binomial_model_bermudan(T,Sb_lst,E,r,vol,N_bermudan,p,spacing) 
+# binomial_model_european(T,S_lst,E,r,vol,N,p)
+# binomial_model_american(T,S_lst,E,r,vol,N,p)
+# binomial_model_bermudan(T,Sb_lst,E,r,vol,N_bermudan,p,spacing) 
 
     
 ################MONTE CARLO################### Similar to Higham's matlab code, converted to python and slightly modified for option delta.
@@ -379,7 +379,7 @@ S = 1
 E = 1
 sigma = 0.3
 r = 0.05
-h = 0.01
+h = 0.0001
 T = 1
 nr_samples = [250,1000,2500,5000,7500,10000,12500,15000,17500,20000]
 aM_lst = []
@@ -419,8 +419,8 @@ for M in nr_samples:
         Vhanti[i] = 0.5 * (Vh[i] + Vh2)
 
     for i in range(M):
-        delta1[i] = np.exp(-r * Dt) * (V[i] - Vh[i]) / h
-        delta2[i] = np.exp(-r * Dt) * (Vanti[i] - Vhanti[i]) / h
+        delta1[i] = np.exp(-r * Dt) * (Vh[i] - V[i]) / h
+        delta2[i] = np.exp(-r * Dt) * (Vhanti[i] - Vanti[i]) / h
 
     aM = np.mean(delta1)
     bM = np.std(delta1)
