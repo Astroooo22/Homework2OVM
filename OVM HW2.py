@@ -367,9 +367,9 @@ def binomial_model_bermudan(T,S_lst,E,r,vol,N,p,spacing):
     plt.savefig('2C.png')
     return V_0
 
-# binomial_model_european(T,S_lst,E,r,vol,N,p)
-# binomial_model_american(T,S_lst,E,r,vol,N,p)
-# binomial_model_bermudan(T,Sb_lst,E,r,vol,N_bermudan,p,spacing) 
+binomial_model_european(T,S_lst,E,r,vol,N,p)
+binomial_model_american(T,S_lst,E,r,vol,N,p)
+binomial_model_bermudan(T,Sb_lst,E,r,vol,N_bermudan,p,spacing) 
 
     
 ################MONTE CARLO################### Similar to Higham's matlab code, converted to python and slightly modified for option delta.
